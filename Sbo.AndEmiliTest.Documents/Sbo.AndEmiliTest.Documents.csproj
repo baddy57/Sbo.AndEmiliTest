@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+		<DebugType>None</DebugType>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<OutputPath>$(SolutionDir)_Output/obj/</OutputPath>
+		<IntermediateOutputPath>$(SolutionDir)_Output/obj/</IntermediateOutputPath>
+		<OutputBasePath>$(SolutionDir)_Output/obj/</OutputBasePath> 
+		<IntermediateOutputBasePath>$(SolutionDir)_Output/obj/</IntermediateOutputBasePath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Compile Remove="**"></Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Folder Include="Wiki\" />
+	</ItemGroup>
+	
+</Project>
