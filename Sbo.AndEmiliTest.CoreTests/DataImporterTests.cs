@@ -6,12 +6,40 @@ namespace Sbo.AndEmiliTest.Core.Tests;
 
 public class DataImporterTests
 {
+    /// <summary>
+    /// this test fails because BallDontLie stats endpoint is not returning the total pages value
+    /// </summary>
+    [Fact]
+    public async Task GetStatsShouldReturnTotalPageNumber_Test()
+    {
+        using var httpClient = new HttpClient();
+        var httpResponse = await httpClient.GetAsync($"https://www.balldontlie.io/api/v1/stats?per_page=10");
+
+        var json = await httpResponse.Content.ReadAsStringAsync();
+
+        var response = JsonSerializer.Deserialize<Root>(json)
+            ?? throw new InvalidDataException();
+
+        int totalPages = response.meta.total_pages;
+
+        Assert.NotEqual(0, totalPages);
+    }
+
+    [Fact]
+    public async Task Top100ShouldContain100Entries_Test()
+    {
+        var svcs = new BallDontLieServices(new());
+        var top100 = await svcs.GetTopScorers(CancellationToken.None);
+
+        Assert.Equal(100, top100.Count());
+    }
+
     [Theory]
     [InlineData(Example)]
     [InlineData(GetTest1)]
     [InlineData(GetTest2)]
     [InlineData(GetTest3)]
-    public void ParseJsonTest(string json)
+    public void GetResponsesShouldBeParsed_Test(string json)
     {
         var deserialized = JsonSerializer.Deserialize<Root>(json);
         Assert.NotNull(deserialized);
