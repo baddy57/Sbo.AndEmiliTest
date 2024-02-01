@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Sbo.AndEmiliTest.Database;
+﻿namespace Sbo.AndEmiliTest.Database;
 
 public partial class NbaPlayerStat
 {
@@ -11,7 +8,7 @@ public partial class NbaPlayerStat
 
     public long GameId { get; set; }
 
-    public byte[] Date { get; set; } = null!;
+    public DateTime Date { get; set; } = default!;
 
     public long Points { get; set; }
 }
