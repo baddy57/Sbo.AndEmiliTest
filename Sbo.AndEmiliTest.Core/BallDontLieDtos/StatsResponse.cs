@@ -1,4 +1,4 @@
-﻿namespace Sbo.AndEmiliTest.Core.Dto;
+﻿namespace Sbo.AndEmiliTest.Core.BallDontLieDtos;
 
 // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
 public class StatsResponse
