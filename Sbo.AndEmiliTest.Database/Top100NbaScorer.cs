@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Sbo.AndEmiliTest.Database;
+﻿namespace Sbo.AndEmiliTest.Database;
 
 public partial class Top100NbaScorer
 {
-    public long? NbaPlayerId { get; set; }
+    public int NbaPlayerId { get; set; }
 
-    public byte[]? TotalPoints { get; set; }
+    public int TotalPoints { get; set; }
+
+    public string Name { get; set; } = null!;
 }
