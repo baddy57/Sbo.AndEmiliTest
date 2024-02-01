@@ -27,12 +27,20 @@ public class BallDontLieServices
         //exclude latest data to avoid handling games being played
         var maxDate = (DateTime.Now - TimeSpan.FromDays(2)).Date;
 
+        //avoid re-dowloading data
+        var minDate = DateTime.MinValue.Date;
+        using (var context = dbContextFactory.CreateDbContext())
+        {
+            minDate = (await context.NbaPlayerStats.OrderByDescending(x => x.Date)
+                .FirstOrDefaultAsync(ct))?.Date - TimeSpan.FromDays(1) ?? DateTime.MinValue.Date;
+        }
+
         logger.LogInformation("Beginning data download...");
 
         int page = 0;
         while (!ct.IsCancellationRequested)
         {
-            var httpResponse = await httpClient.GetAsync($"https://www.balldontlie.io/api/v1/stats?page={page}&per_page={100}&seasons[]=2023&postseason=false&end_date={maxDate:YYYY-MM-DD}", ct);
+            var httpResponse = await httpClient.GetAsync($"https://www.balldontlie.io/api/v1/stats?page={page}&per_page={100}&seasons[]=2023&postseason=false&end_date={maxDate.ToString("yyyy-MM-dd")}&start_date={minDate.ToString("yyyy-MM-dd")}", ct);
             var json = await httpResponse.Content.ReadAsStringAsync(ct);
 
             //todo better retry policy
@@ -53,15 +61,26 @@ public class BallDontLieServices
             logger.LogInformation("Downloaded {count} records", response.data.Count);
 
             var stats = response.data
-                .Where(x => x.pts is not null);
+                .Where(x => x.pts is not null)
+                .Select(x => x.ToEntity());
+            var players = response.data.Select(x => x.player.ToEntity())
+                        .DistinctBy(x => x.Id);
 
             using (var context = await dbContextFactory.CreateDbContextAsync(ct))
             {
-                await context.NbaPlayers.AddRangeAsync(
-                    stats.Select(x => x.player.ToEntity())
-                        .DistinctBy(x => x.Id), ct);
-                await context.NbaPlayerStats.AddRangeAsync(
-                    stats.Select(x => x.ToEntity()), ct);
+                foreach (var player in players)
+                {
+                    if (!context.NbaPlayers.Contains(player))
+                        context.NbaPlayers.Add(player);
+                }
+
+                foreach (var stat in stats)
+                {
+                    if (!context.NbaPlayerStats.Contains(stat))
+                        context.NbaPlayerStats.Add(stat);
+                }
+                //context.NbaPlayers.AddRangeIfNotExists(players, x => x.Id);
+                //context.NbaPlayerStats.AddRangeIfNotExists(stats, x => x.Id);
                 await context.SaveChangesAsync(ct);
             }
 
