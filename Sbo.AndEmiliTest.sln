@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.ApiServer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.Database", "Sbo.AndEmiliTest.Database\Sbo.AndEmiliTest.Database.csproj", "{469A5C34-E97E-4716-9B4A-F029660327C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.WebApp", "Sbo.AndEmiliTest.WebApp\Sbo.AndEmiliTest.WebApp.csproj", "{EEFA052E-FD0C-4D8A-B315-814084C0A03C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.ApiHttpClient", "Sbo.AndEmiliTest.ApiHttpClient\Sbo.AndEmiliTest.ApiHttpClient.csproj", "{FE577E91-8219-45AF-8356-B8B2194C64D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{469A5C34-E97E-4716-9B4A-F029660327C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469A5C34-E97E-4716-9B4A-F029660327C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469A5C34-E97E-4716-9B4A-F029660327C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEFA052E-FD0C-4D8A-B315-814084C0A03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEFA052E-FD0C-4D8A-B315-814084C0A03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEFA052E-FD0C-4D8A-B315-814084C0A03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEFA052E-FD0C-4D8A-B315-814084C0A03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE577E91-8219-45AF-8356-B8B2194C64D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE577E91-8219-45AF-8356-B8B2194C64D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE577E91-8219-45AF-8356-B8B2194C64D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE577E91-8219-45AF-8356-B8B2194C64D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

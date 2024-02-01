@@ -1,0 +1,21 @@
+﻿@page "/fetchdata"
+@using Sbo.AndEmiliTest.WebApp.Data
+@inject WeatherForecastService ForecastService
+@using Sbo.AndEmiliTest.Database
+
+
+
+<MudBlazor.MudDataGrid T="Top100NbaScorer">
+    <Columns>
+        <TextColumn
+    </Columns>
+</MudBlazor.MudDataGrid>
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateOnly.FromDateTime(DateTime.Now));
+    }
+}
