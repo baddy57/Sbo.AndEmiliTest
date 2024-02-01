@@ -67,7 +67,4 @@
     <Build Include="Tables\Users.sql" />
     <Build Include="Views\Top100NbaScorers.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Snapshots\Sbo.AndEmiliTest.Database.Sql_20240201_14-17-35.dacpac" />
-  </ItemGroup>
 </Project>
