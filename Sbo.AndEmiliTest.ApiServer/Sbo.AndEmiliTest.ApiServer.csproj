@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sbo.AndEmiliTest.Core\Sbo.AndEmiliTest.Core.csproj" />
     <ProjectReference Include="..\Sbo.AndEmiliTest.Database\Sbo.AndEmiliTest.Database.csproj" />
   </ItemGroup>
 

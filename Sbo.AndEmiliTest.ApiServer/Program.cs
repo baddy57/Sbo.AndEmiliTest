@@ -1,3 +1,5 @@
+using Sbo.AndEmiliTest.ApiServer;
+using Sbo.AndEmiliTest.Core;
 using Sbo.AndEmiliTest.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddAndEmiliTestDbContextAndFactory();
+builder.Services.AddSingleton<BallDontLieServices>();
+builder.Services.AddHostedService<Initializer>();
+
+builder.Services.AddTransient<HttpClient>();
+builder.Services.AddLogging(x => x.AddSimpleConsole());
 
 var app = builder.Build();
 
