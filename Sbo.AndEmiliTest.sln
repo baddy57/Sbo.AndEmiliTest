@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.Documents", "Sbo.AndEmiliTest.Documents\Sbo.AndEmiliTest.Documents.csproj", "{D8AD502D-0727-4F64-B08C-AABFB1B1749E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sbo.AndEmiliTest.Documents", "Sbo.AndEmiliTest.Documents\Sbo.AndEmiliTest.Documents.csproj", "{D8AD502D-0727-4F64-B08C-AABFB1B1749E}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sbo.AndEmiliTest.Database.Sql", "Sbo.AndEmiliTest.Database.Sql\Sbo.AndEmiliTest.Database.Sql.sqlproj", "{94A56B53-ED4B-4ECF-AC9F-FB8DF6D35C7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.Core", "Sbo.AndEmiliTest.Core\Sbo.AndEmiliTest.Core.csproj", "{177FB403-9509-41F0-A9D4-6AB50E6CA595}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sbo.AndEmiliTest.Core", "Sbo.AndEmiliTest.Core\Sbo.AndEmiliTest.Core.csproj", "{177FB403-9509-41F0-A9D4-6AB50E6CA595}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.CoreTests", "Sbo.AndEmiliTest.CoreTests\Sbo.AndEmiliTest.CoreTests.csproj", "{13A790B9-FF86-44C8-BBEB-2488ADEC968B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sbo.AndEmiliTest.CoreTests", "Sbo.AndEmiliTest.CoreTests\Sbo.AndEmiliTest.CoreTests.csproj", "{13A790B9-FF86-44C8-BBEB-2488ADEC968B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.ApiServer", "Sbo.AndEmiliTest.ApiServer\Sbo.AndEmiliTest.ApiServer.csproj", "{DFA4B88D-6D89-49DC-AFFC-AF2F1D40A83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sbo.AndEmiliTest.Database", "Sbo.AndEmiliTest.Database\Sbo.AndEmiliTest.Database.csproj", "{469A5C34-E97E-4716-9B4A-F029660327C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,14 @@ Global
 		{13A790B9-FF86-44C8-BBEB-2488ADEC968B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A790B9-FF86-44C8-BBEB-2488ADEC968B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A790B9-FF86-44C8-BBEB-2488ADEC968B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA4B88D-6D89-49DC-AFFC-AF2F1D40A83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA4B88D-6D89-49DC-AFFC-AF2F1D40A83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA4B88D-6D89-49DC-AFFC-AF2F1D40A83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA4B88D-6D89-49DC-AFFC-AF2F1D40A83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{469A5C34-E97E-4716-9B4A-F029660327C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{469A5C34-E97E-4716-9B4A-F029660327C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{469A5C34-E97E-4716-9B4A-F029660327C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{469A5C34-E97E-4716-9B4A-F029660327C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
