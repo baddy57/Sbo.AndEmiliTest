@@ -5,7 +5,7 @@ using Sbo.AndEmiliTest.Database;
 namespace Sbo.AndEmiliTest.ApiServer.Controllers;
 
 [ApiController]
-[Route("[players]")]
+[Route("players")]
 public class PlayersController : ControllerBase
 {
     private readonly SboAndEmiliTestContext dbContext;
@@ -17,22 +17,14 @@ public class PlayersController : ControllerBase
         this.dbContext = dbContext;
     }
 
-    [HttpGet(Name = "GetTop100")]
-    public async Task<ActionResult<IEnumerable<Top100NbaScorer>>> GetTop100(string username)
+    [HttpGet("top100", Name = "GetTop100")]
+    public async Task<ActionResult<IEnumerable<Top100NbaScorer>>> GetTop100()
     {
         var top100 = await dbContext.Top100NbaScorers.ToListAsync();
 
-        foreach (var item in top100)
-        {
-            await dbContext.NbaPlayers.FindAsync(item.NbaPlayerId);
-        }
-
-        var user = await dbContext.Users.SingleOrDefaultAsync(x => x.Email == username);
-        var players = user?.UserFavouritePlayers.Select(x => x.Player);
-
-        if (players is null)
+        if (top100 is null)
             return NotFound();
 
-        return Ok(players);
+        return Ok(top100);
     }
 }

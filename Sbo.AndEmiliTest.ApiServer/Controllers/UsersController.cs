@@ -5,7 +5,7 @@ using Sbo.AndEmiliTest.Database;
 namespace Sbo.AndEmiliTest.ApiServer.Controllers;
 
 [ApiController]
-[Route("[users]")]
+[Route("users")]
 public class UsersController : ControllerBase
 {
     private readonly SboAndEmiliTestContext dbContext;
@@ -17,7 +17,7 @@ public class UsersController : ControllerBase
         this.dbContext = dbContext;
     }
 
-    [HttpGet(Name = "GetUserFavs")]
+    [HttpGet("favs", Name = "GetUserFavs")]
     public async Task<ActionResult<IEnumerable<NbaPlayer>>> GetUserFavourites(string email)
     {
         var user = await dbContext.Users.SingleOrDefaultAsync(x => x.Email == email);
@@ -29,7 +29,7 @@ public class UsersController : ControllerBase
         return Ok(players);
     }
 
-    [HttpGet(Name = "Login")]
+    [HttpGet("login", Name = "Login")]
     public async Task<ActionResult> Login(string email)
     {
         if (await dbContext.Users.AnyAsync(x => x.Email == email))
